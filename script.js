@@ -26,45 +26,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 1,
                 title: "AgriTrek",
                 shortDesc: "Developed a robust full-stack platform for agricultural resource tracking.",
-                longDesc: "This comprehensive platform was built to help farmers and agricultural businesses efficiently manage resources. The application features user authentication, a detailed dashboard for monitoring crop health and resource allocation, and a real-time data visualization module to track key metrics. Technologies used: Angular, Spring Boot, PostgreSQL, Chart.js.",
-                technologies: "Angular, Spring Boot, PostgreSQL, Chart.js",
-                imageUrl: "https://placehold.co/100x100/4F46E5/ffffff?text=AgriTrek"
+                longDesc: "This comprehensive platform was built to help small scale farmers and agricultural businesses efficiently manage resources. The application features user authentication, a detailed dashboard for monitoring livestock and crops inventory, expenses and resource allocation, and a real-time data visualization module to track key metrics. Technologies used: React, Nodejs, MongoDB, Chart.js, github and vercel.",
+                technologies: "React, Nodejs, MongoDB, Chart.js, github and vercel.",
+                imageUrl: "./assets/Agritrack.png",
+                githubUrl: "https://github.com/keneilweRangw/Agritrack"
+
+                
             },
             {
                 id: 2,
-                title: "E-commerce Microservice Backend",
-                shortDesc: "Architected and implemented a scalable microservices-based e-commerce backend.",
-                longDesc: "I designed and implemented a scalable microservices-based backend for an e-commerce platform. The system is responsible for handling user authentication, product management, and order processing, demonstrating expertise in distributed systems and API design. Technologies used: Java, Spring Boot, MySQL.",
-                technologies: "Java, Spring Boot, MySQL",
+                title: "Uninest Go",
+                shortDesc: "Verified student accommodations platform connecting students with safe, verified, and affordable housing options.",
+                longDesc: " Uninest Go is a platform designed to help students find safe, verified, and affordable accommodations. The platform includes features for browsing listings, verifying landlords, and filtering by budget or location.  The backend was designed using a microservices architecture to ensure scalability and maintainability. Key features include user management, accommodationmlistings, application processing, and payment integration. Technologies used: Java, Angular, Spring Boot, Postgresql.",
+                technologies: "Angular, Spring Boot, PostgreSQL,Java.",
                 imageUrl: "https://placehold.co/100x100/4F46E5/ffffff?text=E-Commerce"
             },
             {
                 id: 3,
-                title: "River Health Project",
+                title: "HydroTrek",
                 shortDesc: "Conducted a data analysis of river health metrics to identify pollution trends.",
-                longDesc: "In this project, I performed a comprehensive data analysis of river health metrics to identify pollution trends and sewage discharge patterns. I utilized Python for data cleaning and statistical analysis, and created interactive dashboards with Power BI to visualize the findings. Technologies used: Python (Pandas, NumPy), Power BI.",
-                technologies: "Python (Pandas, NumPy), Power BI",
-                imageUrl: "https://placehold.co/100x100/4F46E5/ffffff?text=River+Health"
+                longDesc: "In this project, I performed a comprehensive data analysis of river health metrics to identify pollution trends and sewage discharge patterns. I utilized Python for data cleaning and statistical analysis, and created interactive dashboards with Power BI to visualize the findings. Technologies used: Python (Seaborn, Pandas, NumPy), Power BI.",
+                technologies: "Python (Seaborn, Pandas, NumPy), Power BI.",
+                imageUrl: "./assets/Logo.jpeg"
             },
             {
                 id: 4,
-                title: "Employment ML Model",
-                shortDesc: "Built and evaluated machine learning models to predict income levels.",
-                longDesc: "I built and evaluated machine learning models (Random Forest, Gradient Boosting) to predict income levels based on demographic and employment data. My work focused on feature engineering and model interpretability to provide actionable insights for a research study. Technologies used: Python (Scikit-learn, Pandas).",
-                technologies: "Python (Scikit-learn, Pandas)",
-                imageUrl: "https://placehold.co/100x100/4F46E5/ffffff?text=ML+Model"
+                title: "Mastering-Avocado-Prices",
+                shortDesc: "A Strategic Approach to Regional, Seasonal, and Predictive Insights on Avocado Prices",
+                longDesc: "Mastering-Avocado-Prices” analyzes avocado pricing and sales from 2015–2023 using Hass Avocado Board data. The project examines regional, seasonal, and market influences on prices and provides insights and predictive strategies to guide future pricing decisions. Technologies used: Python (Scikit-learn, Pandas).",
+                technologies: "Python (Scikit-learn, Pandas, NumPy), Power BI, Jupyter Notebook.",
+                imageUrl: "./assets/avo.jpeg",
+                githubUrl: "https://github.com/keneilweRangw/Mastering-Avocado-Prices"
+
             }
         ],
         experience: {
             title: "Full-Stack Intern – Shaper",
-            description: "Contributed to the development of a company-wide internal resource management application. My responsibilities included developing new features in the Angular front end, designing and implementing REST APIs with Spring Boot, and managing database schema updates in PostgreSQL. This role honed my collaborative skills and full-stack proficiency in an agile environment.",
-            duration: "[Start Date] - [End Date]"
+            description: "Contributed in multi-grouped projects. My responsibilities included developing new features in the Angular front end, designing and implementing REST APIs with Spring Boot, and managing database schema updates in PostgreSQL. This role honed my collaborative skills and full-stack proficiency in an agile environment.",
+            duration: "01 April 2025 - To Date"
         },
         timeline: [
-            { year: 2024, title: "Full-Stack Internship at Shaper", description: "Honed full-stack development skills in a professional, agile environment." },
-            { year: 2023, title: "Data Science Certificate", description: "Completed a certificate focusing on machine learning and data analysis." },
-            { year: 2022, title: "Launched AgriTrek Project", description: "First major personal project, a full-stack resource tracking platform." },
-            { year: 2021, title: "Began Diploma in Email Sciences", description: "Started formal education in technology and data." }
+            { year: 2025, title: "Launched AgriTrek Project", description: "First major personal project, a full-stack resource tracking platform." },
+            { year: 2025, title: "Full-Stack Internship at Shaper", description: "Honed full-stack development skills in a professional, agile environment." },
+            { year: 2024, title: "Data Science Certificate", description: "Completed a certificate focusing on machine learning and data analysis." },
+            { year: 2022, title: "Completed Diploma in Animal Sciences", description: "Graduated and formally held a Diploma in Animal Sciences which is in an agricultural field " },
+            { year: 2019, title: "Began Diploma in Animal Sciences", description: "Started formal education in Animal Sciences." }
         ]
     };
 
@@ -176,28 +182,44 @@ portfolioData.skills.forEach(skill => {
     });
 
     // Project modal logic
+    const modalGithub = document.getElementById('modal-github');
+
     projectsGrid.addEventListener('click', (e) => {
         if (e.target.classList.contains('view-details')) {
             const projectId = parseInt(e.target.dataset.id);
             const project = portfolioData.projects.find(p => p.id === projectId);
+    
             if (project) {
                 modalTitle.textContent = project.title;
                 modalDesc.textContent = project.longDesc;
                 modalTech.innerHTML = `<b>Technologies:</b> ${project.technologies}`;
                 modalImage.src = project.imageUrl.replace('100x100', '400x300');
+    
+                // Show or hide GitHub button
+                if (project.githubUrl) {
+                    modalGithub.style.display = 'inline-flex';
+                    modalGithub.href = project.githubUrl;
+                } else {
+                    modalGithub.style.display = 'none';
+                    modalGithub.href = '#';
+                }
+    
                 projectModal.classList.add('open');
             }
         }
     });
-
+    
+    // Close modal logic
     document.querySelector('.modal-close-btn').addEventListener('click', () => {
         projectModal.classList.remove('open');
     });
+    
     window.addEventListener('click', (e) => {
         if (e.target === projectModal) {
             projectModal.classList.remove('open');
         }
     });
+
     
     // Populate experience
     document.getElementById('experience-title').textContent = portfolioData.experience.title;
@@ -251,4 +273,19 @@ portfolioData.skills.forEach(skill => {
             behavior: 'smooth'
         });
     });
+});
+
+// Dynamic Resume Download
+const resumeButton = document.querySelector('.btn.btn-primary[href="#"]');
+
+resumeButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Create a temporary <a> element
+    const link = document.createElement('a');
+    link.href = './assets/Keneilwe_Rangwaga_Resume.pdf';
+    link.download = 'Keneilwe_Rangwaga_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 });
