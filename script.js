@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const portfolioData = {
         hero: {
             intro: "Hi, I’m Keneilwe 👩‍💻",
-            roles: ["Full-Stack Developer", "Data Analyst", "Researcher"]
+            roles: ["Full-Stack Developer", "Data Analyst"]
         },
-        about: "I am a <b>full-stack developer</b> with a diploma in <b>Email Sciences</b> and a certificate in <b>Data Sciences</b>. I recently completed a <b>full-stack leadership internship at Shaper</b>, where I gained hands-on experience in building robust, end-to-end applications using modern frameworks. My expertise spans both front-end and back-end development, complemented by a strong background in <b>data analysis and machine learning</b>. I have a proven track record of working on impactful projects, from developing agricultural resource tracking platforms to analyzing complex datasets to predict outcomes. I am a collaborative problem-solver who enjoys exploring the latest tech innovations and contributing to projects that make a tangible difference.",
+        about: "I am a <b>full-stack developer</b> with a diploma in <b>Animal Sciences</b> and a certificate in <b>Data Sciences</b>. I recently completed a <b>full-stack leadership internship at Shaper</b>, where I gained hands-on experience in building robust, end-to-end applications using modern frameworks. My expertise spans both front-end and back-end development, complemented by a strong background in <b>data analysis and machine learning</b>. I have a proven track record of working on impactful projects, from developing agricultural resource tracking platforms to analyzing complex datasets to predict outcomes. I am a collaborative problem-solver who enjoys exploring the latest tech innovations and contributing to projects that make a tangible difference.",
         skills: [
             { name: 'HTML', icon: '<i class="fab fa-html5"></i>' },
             { name: 'CSS', icon: '<i class="fab fa-css3-alt"></i>' },
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 shortDesc: "Verified student accommodations platform connecting students with safe, verified, and affordable housing options.",
                 longDesc: " Uninest Go is a platform designed to help students find safe, verified, and affordable accommodations. The platform includes features for browsing listings, verifying landlords, and filtering by budget or location.  The backend was designed using a microservices architecture to ensure scalability and maintainability. Key features include user management, accommodationmlistings, application processing, and payment integration. Technologies used: Java, Angular, Spring Boot, Postgresql.",
                 technologies: "Angular, Spring Boot, PostgreSQL,Java.",
-                imageUrl: "https://placehold.co/100x100/4F46E5/ffffff?text=E-Commerce"
+                imageUrl: "./assets/Macbook.png",
             },
             {
                 id: 3,
@@ -239,24 +239,46 @@ portfolioData.skills.forEach(skill => {
         timelineContainer.appendChild(div);
     });
 
-    // Contact Form
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
-        
-        if (data.name && data.email && data.message) {
-            console.log('Form submitted:', data);
-            formStatus.textContent = 'Message sent successfully! Thank you.';
-            formStatus.style.color = 'var(--accent)';
-            contactForm.reset();
-        } else {
-            formStatus.textContent = 'Please fill in all fields.';
-            formStatus.style.color = '#EF4444';
-        }
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toast-message');
+
+  function showToast(message, type = 'success') {
+    toastMessage.textContent = message;
+    toast.style.backgroundColor = type === 'success' ? '#16a34a' : '#dc2626';
+    toast.classList.remove('hidden');
+    toast.classList.add('flex');
+
+    setTimeout(() => {
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }, 3000);
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+      });
+
+      if (response.ok) {
+        showToast('✅ Message sent successfully!', 'success');
+        form.reset();
+      } else {
+        showToast('⚠️ Something went wrong. Please try again.', 'error');
+      }
+    } catch (error) {
+      showToast('❌ Network error. Please try again later.', 'error');
+      console.error(error);
+    }
+  });
+});
     
     // Back to Top Button
     const backToTopBtn = document.getElementById('back-to-top');
