@@ -149,12 +149,13 @@ body.light-theme .theme-toggle {
 }
 
 .hero {
-  min-height: 120vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 6rem;
 }
 
 @media (min-width: 768px) {
