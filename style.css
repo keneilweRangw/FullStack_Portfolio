@@ -637,5 +637,83 @@ body {
   }
 }
 
+/* Extra Small Devices: 300px – 400px */
+@media (min-width: 300px) and (max-width: 400px) {
+  .navbar-links {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    margin-top: 6rem;
+
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 1rem;
+    text-align: center;
+    margin-top: 6rem;
+  }
+
+  .hero-content {
+    padding: 0;                 /* Remove side padding */
+  }
+
+  .hero-image {
+    width: 12rem;
+    height: 15rem;
+    border-width: 3px;
+  }
+
+  .skills-list {
+    grid-template-columns: 1fr; /* Stack skills in one column */
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* Keep single column */
+  }
+
+  .timeline-item {
+    margin-bottom: 2rem;        /* Reduce space */
+    padding: 1rem;
+  }
+
+  .timeline-item::before {
+    top: 1rem;
+  }
+
+  .about-images img {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  #experience .section-card img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .contact-form {
+    padding: 1.2rem;
+  }
+
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+  }
+
+  .hero button,
+  .download-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
 
 /* End of style.css */  
