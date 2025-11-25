@@ -716,4 +716,83 @@ body {
   }
 }
 
+/* Small Devices: 400px – 700px */
+@media (min-width: 400px) and (max-width: 700px) {
+  .navbar-links {
+    flex-direction: row;         /* Keep links horizontal if space allows */
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 6rem;
+  }
+
+  .hero-content {
+    padding: 0.5rem;
+  }
+
+  .hero-image {
+    width: 14rem;
+    height: 17rem;
+    border-width: 3px;
+  }
+
+  .skills-list {
+    grid-template-columns: repeat(2, 1fr); /* Two columns if space allows */
+    gap: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .timeline-item {
+    margin-bottom: 2.5rem;
+    padding: 1.25rem;
+  }
+
+  .timeline-item::before {
+    top: 1.25rem;
+  }
+
+  .about-images img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  #experience .section-card img {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .back-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.6rem;
+  }
+
+  .hero button,
+  .download-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
 /* End of style.css */  
