@@ -149,7 +149,7 @@ body.light-theme .theme-toggle {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -659,7 +659,7 @@ body {
   .hero {
     padding: 1rem;
     text-align: center;
-    margin-top: 6rem;
+    margin-top: 8rem;
   }
 
   .hero-content {
