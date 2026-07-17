@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             githubUrl: "https://github.com/keneilweRangw/Mastering-Avocado-Prices.git"
         }
     ],
-
+ experienceTitle: "Professional Experience",
     experience: [
         {
             company: "Proto Care (Pty) Ltd",
@@ -380,86 +380,87 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ================= EXPERIENCE =================
-    // ================= EXPERIENCE =================
     const experienceContainer = document.getElementById("experience-container");
-
+    
     // Clear any existing content
-    experienceContainer.innerHTML = '';
+    if (experienceContainer) {
+        experienceContainer.innerHTML = '';
 
-    // Create the main card with image and grid of job cards
-    const mainCard = document.createElement("div");
-    mainCard.className = "section-card";
+        // Create the main card with image and grid of job cards
+        const mainCard = document.createElement("div");
+        mainCard.className = "section-card";
 
-    // Inner flex container for image + content
-    const flexContainer = document.createElement("div");
-    flexContainer.className = "flex flex-col md:flex-row items-start gap-6";
+        // Inner flex container for image + content
+        const flexContainer = document.createElement("div");
+        flexContainer.className = "flex flex-col md:flex-row items-start gap-6";
 
-    // Image on the left
-    const imageDiv = document.createElement("div");
-    imageDiv.className = "flex-shrink-0";
-    imageDiv.innerHTML = `
-        <img
-            src="./assets/extra.jpeg"
-            alt="Keneilwe at Work"
-            class="rounded-xl w-40 h-40 object-cover mb-4 md:mb-0 md:sticky md:top-4"
-        />
-    `;
-    flexContainer.appendChild(imageDiv);
-
-    // Content wrapper on the right
-    const contentWrapper = document.createElement("div");
-    contentWrapper.className = "w-full";
-
-    // Intro text
-    const introText = document.createElement("p");
-    introText.className = "leading-relaxed text-lg mb-6";
-    introText.textContent = "I have gained valuable experience across software development, data science, and IT support. My journey includes full-stack development, team leadership, data analytics, and cloud technologies.";
-    contentWrapper.appendChild(introText);
-
-    // Grid container for job cards
-    const gridContainer = document.createElement("div");
-    gridContainer.className = "grid grid-cols-1 md:grid-cols-2 gap-4";
-
-    // Loop through each job and create cards
-    portfolioData.experience.forEach(job => {
-        const card = document.createElement("div");
-        card.className = "section-card p-4";
-
-        // Build responsibilities list
-        let responsibilitiesHTML = '';
-        if (job.responsibilities && job.responsibilities.length > 0) {
-            responsibilitiesHTML = '<p class="text-sm mt-2"><strong>Responsibilities</strong></p><ul class="list-disc list-inside text-sm space-y-0.5 opacity-80">';
-            job.responsibilities.forEach(resp => {
-                responsibilitiesHTML += `<li>${resp}</li>`;
-            });
-            responsibilitiesHTML += '</ul>';
-        }
-
-        // Build achievements list
-        let achievementsHTML = '';
-        if (job.achievements && job.achievements.length > 0) {
-            achievementsHTML = '<p class="text-sm mt-2"><strong>Key Achievements</strong></p><ul class="list-disc list-inside text-sm space-y-0.5 opacity-80">';
-            job.achievements.forEach(ach => {
-                achievementsHTML += `<li>${ach}</li>`;
-            });
-            achievementsHTML += '</ul>';
-        }
-
-        card.innerHTML = `
-            <h3 class="font-bold text-lg">${job.title}</h3>
-            <h4 class="text-sm font-medium">${job.company}</h4>
-            <p class="text-xs opacity-70 mb-2">${job.duration}</p>
-            ${responsibilitiesHTML}
-            ${achievementsHTML}
+        // Image on the left
+        const imageDiv = document.createElement("div");
+        imageDiv.className = "flex-shrink-0";
+        imageDiv.innerHTML = `
+            <img
+                src="./assets/extra.jpeg"
+                alt="Keneilwe at Work"
+                class="rounded-xl w-40 h-40 object-cover mb-4 md:mb-0 md:sticky md:top-4"
+            />
         `;
+        flexContainer.appendChild(imageDiv);
 
-        gridContainer.appendChild(card);
-    });
+        // Content wrapper on the right
+        const contentWrapper = document.createElement("div");
+        contentWrapper.className = "w-full";
 
-    contentWrapper.appendChild(gridContainer);
-    flexContainer.appendChild(contentWrapper);
-    mainCard.appendChild(flexContainer);
-    experienceContainer.appendChild(mainCard);
+        // Intro text
+        const introText = document.createElement("p");
+        introText.className = "leading-relaxed text-lg mb-6";
+        introText.textContent = "I have gained valuable experience across software development, data science, and IT support. My journey includes full-stack development, team leadership, data analytics, and cloud technologies.";
+        contentWrapper.appendChild(introText);
+
+        // Grid container for job cards
+        const gridContainer = document.createElement("div");
+        gridContainer.className = "grid grid-cols-1 md:grid-cols-2 gap-4";
+
+        // Loop through each job and create cards
+        portfolioData.experience.forEach(job => {
+            const card = document.createElement("div");
+            card.className = "section-card p-4";
+
+            // Build responsibilities list
+            let responsibilitiesHTML = '';
+            if (job.responsibilities && job.responsibilities.length > 0) {
+                responsibilitiesHTML = '<p class="text-sm mt-2"><strong>Responsibilities</strong></p><ul class="list-disc list-inside text-sm space-y-0.5 opacity-80">';
+                job.responsibilities.forEach(resp => {
+                    responsibilitiesHTML += `<li>${resp}</li>`;
+                });
+                responsibilitiesHTML += '</ul>';
+            }
+
+            // Build achievements list
+            let achievementsHTML = '';
+            if (job.achievements && job.achievements.length > 0) {
+                achievementsHTML = '<p class="text-sm mt-2"><strong>Key Achievements</strong></p><ul class="list-disc list-inside text-sm space-y-0.5 opacity-80">';
+                job.achievements.forEach(ach => {
+                    achievementsHTML += `<li>${ach}</li>`;
+                });
+                achievementsHTML += '</ul>';
+            }
+
+            card.innerHTML = `
+                <h3 class="font-bold text-lg">${job.title}</h3>
+                <h4 class="text-sm font-medium">${job.company}</h4>
+                <p class="text-xs opacity-70 mb-2">${job.duration}</p>
+                ${responsibilitiesHTML}
+                ${achievementsHTML}
+            `;
+
+            gridContainer.appendChild(card);
+        });
+
+        contentWrapper.appendChild(gridContainer);
+        flexContainer.appendChild(contentWrapper);
+        mainCard.appendChild(flexContainer);
+        experienceContainer.appendChild(mainCard);
+    }
 
     // Populate timeline
     const timelineContainer = document.getElementById('timeline-container');
